@@ -4,7 +4,7 @@ const generateTokenAndSetCookie = async (userId, res) => {
         const token = jwt.sign({userId}, process.env.JWT_SECRET, {
             expiresIn: "15d"
         })
-        res.cookie("jwt", token, {
+        res.cookie("jwt-chat-App", token, {
             httpOnly: true, // prevent XSS attacks cross-site scripting attacks
             maxAge: 15*24*60*60*1000,
             sameSite: "strict", // CSRF attacks cross-site request forgery attacks
